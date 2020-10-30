@@ -1,4 +1,4 @@
-
+const json = require("./json");
 
 let pets = [
   {
@@ -54,3 +54,43 @@ function tosarPet(pet){
 // servicosPrestados(pets[0], darBanhoNoPet)
 // servicosPrestados(pets[0], tosarPet)
 
+// Desafio - criar uma funcao que adicione todos esses pets da lista que esta contida na constante json 
+// dentro da nossa lista de pets que e a variavel pets 
+// lembrando que: nao precisa ter validacao de dados ta galera, por qual motivo ? 
+// No json nao temos as propriedades vacinado, servicos
+// dica : utilizar JSON.parse na sua string json para transformá-la em um array de objetos válidos
+function cadastrarPetsSpreadOperator(pets, json){
+  let arrayPetsJson = JSON.parse(json);
+  pets.push(...arrayPetsJson)
+
+  return pets
+}
+
+function cadastrarPetsFor(pets, json){
+  let arrayPetsJson = JSON.parse(json)
+
+  for (let index = 0; index < arrayPetsJson.length; index++) {    
+    pets.push(arrayPetsJson[index])
+  }
+
+  return pets
+}
+
+// console.log(cadastrarPetsSpreadOperator(pets, json))
+// console.log(cadastrarPetsFor(pets, json))
+
+// Desafio - Crie uma função filtrarPetPorNome, que quando receber um parâmetro que será uma string
+// irá filtrar um pet por nome e retorná-lo e senão irá retornar que não existe o pet na lista
+function filtrarPetPorNome(lista, nomePet){
+  let petsFiltrados = lista.filter((pet) => {
+    return pet.nome == nomePet
+  });
+
+  if(petsFiltrados.length > 0){
+    return petsFiltrados
+  } else {
+    return "Nenhum pet foi encontrado com o nome " + nomePet
+  }
+}
+
+// console.log(filtrarPetPorNome(pets, 'Yoshi'))
