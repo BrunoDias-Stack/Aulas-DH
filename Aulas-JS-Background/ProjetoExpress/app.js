@@ -9,7 +9,7 @@ let app = express();
 //comando npm install express --save
 
 // usando app.listen
-app.get("/", (req, res)=>res.send("Olá mundo!"))
+app.get("/", (req, res)=>res.send("FILHO!"))
 app.listen(3000, () =>console.log("Servidor rodando na porta 3000"))
 
 
